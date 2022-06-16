@@ -1,0 +1,112 @@
+.App {
+  height: auto;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slider{
+  margin-top:20px;
+  min-height: calc(100vh - 70px);
+  padding: 0 calc(3.5vw + 5px);
+  position:relative;
+  overflow:hidden;
+}
+
+.slider ul li button:before {
+   font-size:10px;
+   color:rgb(150, 158, 171);
+}
+
+.slider li.slick-active button:before{
+  color:white;
+/*// font-size:10px;*/
+}
+
+.slider .slick-list{
+  overflow:visible;
+}
+
+.slider button{
+  z-index:1;
+}
+
+.slider div{
+  height: 350px;
+}
+
+.slider div img {
+  border: 4px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 /73%) 0px 16px 10px -10px;
+  transition-duration: 300ms;
+}
+
+.slider div {
+  cursor:pointer;
+}
+
+.slider div img:hover{
+   border:4px solid rgba(249,249,249,0.8);
+ }
+
+.category-card{
+  border-radius: 10px;
+  box-shadow: #f9fafb 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+}
+
+.category-card:hover{
+  box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+  transform: scale(1.0);
+  border-color: rgba(249, 249, 249, 0.8);
+}
+
+.footer{
+  bottom: 0;
+}
+
+.event-body .card{
+  box-shadow: #f9fafb 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+  transform: scale(1.05);
+  border-color: rgba(249, 249, 249, 0.8);
+  cursor: pointer;
+}
