@@ -3,12 +3,14 @@ const Event = require("../models/Event");
 const paginate = require('../middlewares/Paginate');
 
 exports.getEvents = asyncHandler(async(req,res,next)=>{
-    const { page = 1, limit = 10 } = req.query;
-    res.status(200).json({data:await Event.find()});
+    const events = await Event.find().populate({'path':'category','select':'name'});
+    res.status(200).json({data:events});
+
 });
 
 exports.getEventByCategory = asyncHandler(async(req,res,next)=>{
-    const events = await Event.find({'category':req.params.category});
+    const events = await Event.find({'category':req.query.category})
+      .populate({'path':'category','select':'name'});
     res.status(200).json({data:events});
 });
 

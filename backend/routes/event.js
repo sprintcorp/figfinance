@@ -4,6 +4,6 @@ const{getEvents,createEvent,getEventByCategory} = require("../controllers/EventC
 const eventRoute = express.Router();
 
 eventRoute.route('/').get(getEvents).post(createEvent);
-eventRoute.get('/:category',getEventByCategory);
+eventRoute.get('/filter',getEventByCategory);
 
 module.exports = eventRoute;

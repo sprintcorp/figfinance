@@ -1,4 +1,4 @@
-import {GET_EVENT_FAIL, GET_EVENTS_ACTION, GET_EVENTS_REQUEST} from "../constants/EventConstant";
+import {CLEAR_ERRORS, GET_EVENT_FAIL, GET_EVENTS_ACTION, GET_EVENTS_REQUEST} from "../constants/Constant";
 
 export const eventReducers = (state={events:[]},action) =>{
     switch (action.type) {
@@ -11,6 +11,8 @@ export const eventReducers = (state={events:[]},action) =>{
             };
         case GET_EVENT_FAIL:
             return { loading: false, error: action.payload };
+        case CLEAR_ERRORS:
+            return {...state,error: null}
         default:
             return state;
     }
