@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 const connectDB = require('./config/db');
 const eventRoute = require("./routes/event");
@@ -10,6 +11,7 @@ dotenv.config();
 
 connectDB();
 const app = express();
+app.use(cors());
 app.use(mongoSanitize());
 
 app.use(errorHandler);

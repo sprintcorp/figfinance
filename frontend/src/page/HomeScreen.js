@@ -1,76 +1,102 @@
-import React,{ useEffect } from 'react';
+import React, {useEffect,useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import {getEventsAction} from "../redux/actions/EventAction";
+import SliderComponent from "../components/SliderComponent";
 
 function HomeScreen() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  let modalData = '';
+  const setModalContent = (data) =>{
+    modalData = data;
+    console.log(modalData);
+  }
 
-    const eventsList = useSelector((state) => state.eventList);
-    const { loading, error, events } = eventsList;
-    console.log(loading+' '+error+' '+events);
-    useEffect(() => {
-        dispatch(getEventsAction());
-    },[dispatch]);
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay:true
-    };
-    return (
-        <>
-            <div className="container">
-                <Slider {...settings} className="slider">
-                    <div>
-                        <img src="https://img.freepik.com/free-vector/modern-music-event-poster-template_1361-1292.jpg?w=2000" alt=''/>
-                    </div>
-                    <div>
-                        <img src="https://as1.ftcdn.net/v2/jpg/02/26/12/54/1000_F_226125493_BqK7H44w4i6M0Uy3U6fv2trLx9umSxUT.jpg" alt=''/>
-                    </div>
-                    <div>
-                        <img src="https://www.premiumwp.com/wp-content/uploads/2013/10/event-themes-featured.jpg" alt=''/>
-                    </div>
-                </Slider>
+  const eventsList = useSelector((state) => state.eventList);
 
-                <div className="row mt-2 text-center">
-                    <div className="col-sm-3">
-                        <div className="card category-card">
-                            <h5 className="card-title">Special title treatment</h5>
-                        </div>
-                    </div>
+  const { loading, error, events } = eventsList;
 
-                    <div className="col-sm-3">
-                        <div className="card category-card">
-                            <h5 className="card-title">Special title treatment</h5>
-                        </div>
-                    </div>
-                </div>
+  useEffect(() => {
+    dispatch(getEventsAction());
+  },[dispatch]);
 
-                <div className="event-body mt-5">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="card">
-                                <div className="card-header">
-                                    Event category
-                                </div>
-                                <div className="card-body">
-                                <h5 className="card-title">Event title</h5>
-                                <p className="card-text">Event description</p>
-                                {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <>
+      <div className="container">
+        <SliderComponent/>
+        <div className="row mt-2 text-center">
+          <div className="col-sm-3">
+            <div className="card category-card">
+              <h5 className="card-title">Special title treatment</h5>
             </div>
+          </div>
 
-        </>
-    );
+          <div className="col-sm-3">
+            <div className="card category-card">
+              <h5 className="card-title">Special title treatment</h5>
+            </div>
+          </div>
+        </div>
+        <div className="h3 mt-5">Events</div>
+        {modalData}
+        <div className="event-body mt-3">
+          <div className="row d-flex">
+            {loading ? (
+              <div className="col-md-12 text-center">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : error ? (
+              <div className="col-md-12 text-center card p-5">
+                Error Loading Event... Pls be patient as we resolve this error
+              </div>
+            ) : events.length === 0 && !loading ? (
+              <div className="col-md-12 text-center">
+                No event available at the moment
+              </div>
+            ) : (
+              <>
+                {events.map((event) => (
+                  <div className="col-md-4 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={ () => setModalContent(event)} key={event._id}>
+                    <div className="card">
+                      <div className="card-header">
+                        {event.category}
+                      </div>
+                      <div className="card-body">
+                        <h5 className="card-title">{event.title}</h5>
+                        <p className="card-text">{event.description}</p>
+                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </>
+
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+           aria-hidden="true">
+        <div className="modal-dialog modal-lg modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Title</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <p>{modalData.title}</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </>
+  );
 }
 
 export default HomeScreen;

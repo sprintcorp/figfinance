@@ -10,9 +10,10 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required:[true, 'Please add description to this event']
     },
-    category:{
-        type: String,
-        required:true
+    category: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Category',
+        required: true
     },
     address:{
         type: String

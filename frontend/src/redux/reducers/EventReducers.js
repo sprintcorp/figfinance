@@ -7,9 +7,7 @@ export const eventReducers = (state={events:[]},action) =>{
         case GET_EVENTS_ACTION:
             return {
                 loading: false,
-                // pages: action.payload.pages,
-                // page: action.payload.page,
-                // products: action.payload.products,
+                events: action.payload.data,
             };
         case GET_EVENT_FAIL:
             return { loading: false, error: action.payload };
