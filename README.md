@@ -45,6 +45,10 @@ To run test use the command below
 
     npm run test
 
+
+![image](https://user-images.githubusercontent.com/37757522/174410721-1f141b0e-bbf9-49ad-98de-3d85c55459f6.png)
+
+
 (frontend)
 
     cd fig-finance-test/frontnd
@@ -63,6 +67,20 @@ You can now access the application at `http://localhost:3000` when it starts pro
 Default API URL is `http://127.0.0.1:5000/api`. API url can  is located in the directory below and can be changed if the backend is not running on the default application port
 
     fig-finance-test/frontnd/src/server.js
+    
+### Snapshots   
+   
+   ![image](https://user-images.githubusercontent.com/37757522/174410867-34179316-4211-47b1-9921-a24149a09b00.png)
+   
+   ![image](https://user-images.githubusercontent.com/37757522/174410926-84ffe847-79aa-4617-b487-94cfd747b919.png)
+   
+   ![image](https://user-images.githubusercontent.com/37757522/174411210-9521b97c-06f4-4795-b753-1df63fb06565.png)
+   
+   ![image](https://user-images.githubusercontent.com/37757522/174411218-ab0d4380-f0a8-41d5-a31a-f0b7066392fd.png)
+
+
+
+
 
 
 
