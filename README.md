@@ -1,6 +1,6 @@
 # Getting started
 
-##Brief description
+## Brief description
 
 The application is designed to help user get event base on interest. The application
 allows users to filter through various categories of event.
