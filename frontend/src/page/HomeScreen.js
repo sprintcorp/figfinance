@@ -11,11 +11,6 @@ function HomeScreen() {
 
   const events = useSelector((state) => state.eventList);
   const categories  = useSelector((state) => state.categoryList);
-  console.log(categories);
-
-
-
-  // console.log(categories);
 
   useEffect(() => {
     dispatch(getEventsAction());
@@ -78,7 +73,9 @@ function HomeScreen() {
               <>
                 {events.events.map((event) => (
                   <div className="col-md-4 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={ () => Click(event)} key={event._id}>
-                    <div className="card">
+                    <div className="card" data-bs-toggle="tooltip" data-bs-placement="top"
+                         data-bs-custom-class="custom-tooltip"
+                         title="Click to view more information">
                       <div className="card-header">
                         {event.category && event.category.name}
                       </div>
@@ -118,10 +115,8 @@ function HomeScreen() {
           </div>
         </div>
       </div>
-
     </>
   );
-
 }
 
 export default HomeScreen;
