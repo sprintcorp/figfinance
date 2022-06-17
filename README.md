@@ -45,6 +45,10 @@ To run test use the command below
 
     npm run test
 
+
+![image](https://user-images.githubusercontent.com/37757522/174410721-1f141b0e-bbf9-49ad-98de-3d85c55459f6.png)
+
+
 (frontend)
 
     cd fig-finance-test/frontnd
