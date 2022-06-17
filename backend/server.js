@@ -19,7 +19,7 @@ app.use(mongoSanitize());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(errorHandler);
+
 
 app.use(express.json());
 
@@ -30,7 +30,7 @@ app.use("/api/events", eventRoute);
 app.use("/api/categories",categoryRoute)
 
 
-
+app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(

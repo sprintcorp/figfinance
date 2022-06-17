@@ -107,7 +107,7 @@ function HomeScreen() {
             </div>
             <div className="modal-body">
               <p>Topic: {event && event.title}</p>
-              <p>Virtual: {event && event.isVirtual}</p>
+              <p>Virtual: {event && String(event.isVirtual).toUpperCase()}</p>
               <p>Date: {event && event.date}</p>
               <p>Address: {event && event.address}</p>
               <p>Description: {event && event.description}</p>

@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler")
 const Event = require("../models/Event");
-const paginate = require('../middlewares/Paginate');
+const advancedResults = require('../middlewares/Paginate');
 
 exports.getEvents = asyncHandler(async(req,res,next)=>{
     const events = await Event.find().populate({'path':'category','select':'name'});

@@ -1,4 +1,4 @@
-const paginate = (model, populate = "") => async(req, res, next) => {
+const advancedResults = (model, populate = "") => async(req, res, next) => {
 
     let query;
 
@@ -16,8 +16,8 @@ const paginate = (model, populate = "") => async(req, res, next) => {
 
     //Create operators($gt, $gte, etc)
     queryStr = queryStr.replace(
-        /\b(gt|gte|lt|lte|in)\b/g,
-        (match) => `$${match}`
+      /\b(gt|gte|lt|lte|in)\b/g,
+      (match) => `$${match}`
     );
 
     //Finding resource
@@ -76,7 +76,7 @@ const paginate = (model, populate = "") => async(req, res, next) => {
         };
     }
 
-    res.paginate = {
+    res.advancedResults = {
         success: true,
         count: results.length,
         pagination,
@@ -87,4 +87,4 @@ const paginate = (model, populate = "") => async(req, res, next) => {
 
 }
 
-module.exports = paginate
+module.exports = advancedResults
