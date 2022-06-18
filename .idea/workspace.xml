@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1187915-7a6a-463b-ae3c-6fb7b6c083eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/page/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/page/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/CategoriesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/CategoriesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middlewares/ErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middlewares/ErrorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/category.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655406816007</updated>
-      <workItem from="1655406823944" duration="57310000" />
+      <workItem from="1655406823944" duration="60355000" />
     </task>
     <servers />
   </component>

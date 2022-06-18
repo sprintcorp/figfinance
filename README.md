@@ -67,6 +67,153 @@ You can now access the application at `http://localhost:3000` when it starts pro
 Default API URL is `http://127.0.0.1:5000/api`. API url can  is located in the directory below and can be changed if the backend is not running on the default application port
 
     fig-finance-test/frontnd/src/server.js
+
+### Api route and response
+
+- Get all events `http://127.0.0.1:5000/api/events` method `GET`
+#### Response
+
+    {
+        "data": [
+            {
+                "_id": "62acf34a8d221c6bd0ad4c60",
+                "title": "Space jam",
+                "description": "This session seeks to get people thinking about the ultimate objective of health AI",
+                "category": {
+                                _id:"62ad06c7713c66ce213a80af",
+                                name:"Environment"
+                            },
+                "address": "London, United Kingdom",
+                "isVirtual": false,
+                "date": "2021-07-17T10:00:00.000Z",
+                "__v": 0
+            },
+            {
+                "_id": "62acf44c466df11290a6739d",
+                "title": "Space jam",
+                "description": "This session seeks to get people thinking about the ultimate objective of health AI",
+                "category": {
+                                _id:"62ad06c7713c66ce213a80af",
+                                name:"Environment"
+                            },
+                "address": "London, United Kingdom",
+                "isVirtual": false,
+                "date": "2021-07-17T10:00:00.000Z",
+                "__v": 0
+            }
+        ]
+    }
+
+- Get all event by category `http://127.0.0.1:5000/api/events/filter?category=62aca885d4e6ea4a32149bd` method `GET` 
+    where category is category id of an existing category
+#### Response
+
+    {
+        "data": [
+            {
+                "_id": "62acf34a8d221c6bd0ad4c60",
+                "title": "Space jam",
+                "description": "This session seeks to get people thinking about the ultimate objective of health AI",
+                "category": {
+                                _id:"62ad06c7713c66ce213a80af",
+                                name:"Environment"
+                            },
+                "address": "London, United Kingdom",
+                "isVirtual": false,
+                "date": "2021-07-17T10:00:00.000Z",
+                "__v": 0
+            }
+            }
+        ]
+    }
+
+- Get all categories `http://127.0.0.1:5000/api/categories` method `GET`
+#### Response
+
+    {
+        "data": [
+            {
+                "_id": "62ad06c7713c66ce213a80ae",
+                "name": "Economics",
+                "__v": 0
+            },
+            {
+                "_id": "62ad06c7713c66ce213a80af",
+                "name": "Environment",
+                "__v": 0
+            }
+        ]
+    }
+
+- Create events `http://127.0.0.1:5000/api/events` method `POST`
+
+#### Data
+    {
+        "title":"Climate chage",
+        "description":"Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels (like coal, oil and gas), which produces heat-trapping gases",
+        "category":"62ad06c7713c66ce213a80af",
+        "date":"2021-07-17T10:00:00.000Z",
+        "isVirtual":true,
+        "address":"London, United Kingdom"
+    }
+
+- Where `category` takes the id of an existing category
+
+#### Response
+
+    {
+        "success": true,
+        "data": {
+            "title": "Climate chage",
+            "description": "Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels (like coal, oil and gas), which produces heat-trapping gases",
+            "category": "62ad06c7713c66ce213a80af",
+            "address": "London, United Kingdom",
+            "isVirtual": true,
+            "date": "2021-07-17T10:00:00.000Z",
+            "_id": "62ad0946713c66ce213a80c3",
+            "__v": 0
+        }
+    }
+
+
+- Create category `http://127.0.0.1:5000/api/category` method `POST`
+
+#### Data
+    {
+        "name":"Space"
+    }
+
+#### Response
+
+    {
+        "success": true,
+        "data": {
+            "name": "Space",
+            "_id": "62ad92c9bf0213f9e719517b",
+            "__v": 0
+        }
+    }
+
+- Import categories `http://127.0.0.1:5000/api/categories/import` method `POST`.
+    This import categories stored in /data/Categories.js file into the database, more can be added
+#### Response
+
+    {
+        "importCategories": [
+            {
+                "name": "Economics",
+                "_id": "62acf5088761f9aee4d9729b",
+                "__v": 0
+            },
+            {
+                "name": "Environment",
+                "_id": "62acf5088761f9aee4d9729c",
+                "__v": 0
+            }
+        ]
+    }
+
+
     
 ### Snapshots   
    
