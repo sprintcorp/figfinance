@@ -39,6 +39,15 @@ Snapshot
 
 ![image](https://user-images.githubusercontent.com/37757522/174438196-a9b7469b-b022-429d-b18a-89d354593130.png)
 
+Stop application running on docker
+
+    docker-compose down
+    
+ snapshot
+ 
+ ![image](https://user-images.githubusercontent.com/37757522/174439557-72226895-90e1-4699-a2ce-1b234eb5e3fe.png)
+
+
 Upon successful run access project frontend via link
 
     http://localhost:3000
