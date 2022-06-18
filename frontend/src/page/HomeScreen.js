@@ -28,6 +28,7 @@ function HomeScreen() {
   const getAllEvent = () =>{
     dispatch(getEventsAction());
   }
+
   return (
 
     <>
