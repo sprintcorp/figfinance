@@ -15,6 +15,7 @@ allows users to filter through various categories of event.
 - ExpressJs Framework
 - MongoDb
 - Mongoose
+- Docker
 
 ## Login details
 
