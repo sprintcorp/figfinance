@@ -20,14 +20,30 @@ allows users to filter through various categories of event.
 
 Application is not authenticated neither is authorization required
 
-## Installation
+## Project setup
 
 
 Clone the repository
 
     git clone https://github.com/sprintcorp/fig-finance-test.git
 
-Switch to the folder directory 
+Switch to project directory
+
+    cd fig-finance-test/
+
+Run via Docker
+
+    docker-compose up -d
+
+Upon successful run access project frontend via link
+
+    http://localhost:3000
+
+Backend
+    
+    http://127.0.0.1:5000
+
+Or run setup individually outside docker
 
 (backend)
 
