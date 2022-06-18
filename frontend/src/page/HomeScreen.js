@@ -34,7 +34,7 @@ function HomeScreen() {
     <>
       <div className="container">
         <SliderComponent/>
-        <div className="h5">Categories(Filter event by categories*)</div>
+        <div className="h5">Categories (Click to filter event by interest)</div>
         <div className="row mt-3 text-center">
           {categories.categories && categories.categories.length > 1 ? (
             <div className="col-sm-3 mb-3" onClick={()=>getAllEvent()}>
