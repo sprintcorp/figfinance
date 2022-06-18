@@ -35,6 +35,9 @@ Run via Docker
 
     docker-compose up -d
 
+N:B This will take time running for the first time because it will build the application
+before running it
+
 Snapshot
 
 ![image](https://user-images.githubusercontent.com/37757522/174438196-a9b7469b-b022-429d-b18a-89d354593130.png)
