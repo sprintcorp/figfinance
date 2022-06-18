@@ -35,6 +35,10 @@ Run via Docker
 
     docker-compose up -d
 
+Snapshot
+
+![image](https://user-images.githubusercontent.com/37757522/174438196-a9b7469b-b022-429d-b18a-89d354593130.png)
+
 Upon successful run access project frontend via link
 
     http://localhost:3000
