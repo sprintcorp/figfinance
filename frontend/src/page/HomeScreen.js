@@ -82,7 +82,7 @@ function HomeScreen() {
                       <div className="card-body">
                         <h5 className="card-title">{event.title}</h5>
                         <p className="card-text">{event.description.length > 70
-                          ? event.description.substring(0, 70)+'...' : event.description}</p>
+                          ? event.description.substring(0, 70)+'...read more' : event.description}</p>
                       </div>
                     </div>
                   </div>
