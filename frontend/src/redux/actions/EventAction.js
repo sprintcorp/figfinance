@@ -24,6 +24,31 @@ export const getEventsAction = () => async(dispatch)=>{
     }
 }
 
+
+export const getUserEventsAction = () => async(dispatch, getState)=>{
+    console.log(getState().userLogin);
+    try{
+        dispatch({type:GET_EVENTS_REQUEST});
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+ getState().userLogin.userInfo.token
+            },
+        };
+
+        const {data} = await axios(BACKEND_URL+"/events/user",config);
+        dispatch({ type: GET_EVENTS_ACTION, payload: data });
+    }catch (error){
+        dispatch({
+            type: GET_EVENT_FAIL,
+            payload:
+              error && error.code === 'ERR_NETWORK'
+                ? error.message
+                : error.message,
+        });
+    }
+}
+
 export const getEventsByCategory = (search) => async(dispatch)=>{
     try{
         dispatch({type:GET_EVENTS_REQUEST});
