@@ -4,7 +4,8 @@ import HeaderComponent from "./components/HeaderComponent";
 import {
     BrowserRouter as Router,
     Routes,
-    Route
+    Route,
+    Outlet
 } from "react-router-dom";
 import HomeScreen from "./page/HomeScreen";
 import FooterComponent from "./components/FooterComponent";
@@ -15,6 +16,14 @@ import PrivateRouter from "./PrivateRouter";
 import AddEventScreen from "./page/AddEventScreen";
 import {useSelector} from "react-redux";
 
+ 
+function Layout() {
+  return (
+      <main>
+        <Outlet />
+      </main>
+  );
+}
 
 function App() {
   const {isAuthenticated,userInfo} = useSelector((state) => state.userLogin);
@@ -35,14 +44,28 @@ function App() {
                   {/*    </PrivateRouter>*/}
                   {/*  }*/}
                   {/*/>*/}
-                  <Route element={<PrivateRouter isAuthenticated={isAuthenticated}/>}>
-                    <Route element={<DashboardScreen/>} path="/dashboard" />
-                    {/*<Route element={<Products/>} path="/products"/>*/}
-                  </Route>
-                      <Route path="/" element={<HomeScreen/>} />
-                      <Route path="/register" element={<RegisterScreen/>} />
-                      <Route path="/login" element={<LoginScreen/>} />
-                      <Route path="/event" element={<AddEventScreen/>} />
+                 
+                  <Route
+                      path="/dashboard"
+                      index
+                      element={
+                        <PrivateRouter isAuthenticated={isAuthenticated}>
+                            <Shipping />
+                        </PrivateRouter>
+                      }
+                      
+                  />
+
+
+                    <Route path="/" element={<Layout />}>
+
+                        <Route index element={<HomeScreen/>} />
+                        <Route path="register" element={<RegisterScreen/>} />
+                        <Route path="login" element={<LoginScreen/>} />
+                        <Route path="event" element={<AddEventScreen/>} />
+
+                    </Route>
+                    
 
                 </Routes>
 
