@@ -11,24 +11,12 @@ const categoryRoute = require("./routes/category");
 const authRoute = require("./routes/auth");
 const errorHandler = require('./middlewares/ErrorHandler');
 
+const app = express();
+
 dotenv.config();
 
 
 connectDB();
-const app = express();
-
-//Enable cookie parser
-app.use(cookieParser());
-
-//Enable CORS
-app.use(cors());
-app.use((req, res, next) => {
-	res.setHeader('Access-Control-Allow-Headers',
-		'Origin, X-Requested-With, Content-Type,' +
-		' Accept, Authorization, Access-Control-Allow-Origin');
-	next();
-})
-
 
 // Sanitize data
 app.use(mongoSanitize());
@@ -37,12 +25,20 @@ app.use(mongoSanitize());
 app.use(xss());
 
 //Body parser
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
-
+//Enable cookie parser
+app.use(cookieParser());
 app.use(express.json());
+
+//Enable CORS
+app.use(cors());
+
+app.use((req, res, next) => {
+	res.setHeader('Access-Control-Allow-Headers',
+		'Origin, X-Requested-With, Content-Type,' +
+		' Accept, Authorization, Access-Control-Allow-Origin');
+	next();
+})
 
 
 

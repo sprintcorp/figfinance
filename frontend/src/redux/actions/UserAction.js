@@ -14,12 +14,13 @@ export const login = (email, password) => async (dispatch) => {
 	try {
 		dispatch({ type: USER_LOGIN_REQUEST });
 
+		const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
 
-		axios.defaults.withCredentials = true;
-		const { data } = await axios.post(
-			BACKEND_URL+`/login`,
-			{ email, password },{withCredentials: true}
-		);
+		const { data } = await axios.post(`/api/login`, { email, password }, config);
 		dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 		// localStorage.setItem("userInfo", JSON.stringify(data));
 
@@ -46,11 +47,7 @@ export const register = (email, password) => async (dispatch) => {
 			},
 		};
 
-		const { data } = await axios.post(
-			BACKEND_URL+`/register`,
-			{ email, password },
-			config
-		);
+		const { data } = await axios.post(`/api/register`,{ email, password },config);
 		dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
 		// localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {

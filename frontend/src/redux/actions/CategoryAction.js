@@ -5,7 +5,7 @@ import {BACKEND_URL} from "../../server";
 export const getCategoriesAction = () => async(dispatch)=>{
   try{
     dispatch({type:GET_CATEGORIES_REQUEST});
-    const {data} = await axios(BACKEND_URL+"/categories");
+    const {data} = await axios("/api/categories");
     dispatch({ type: GET_CATEGORIES_ACTION, payload: data });
   }catch (error){
     dispatch({

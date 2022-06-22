@@ -11,7 +11,7 @@ import {BACKEND_URL} from "../../server";
 export const getEventsAction = () => async(dispatch)=>{
     try{
         dispatch({type:GET_EVENTS_REQUEST});
-        const {data} = await axios(BACKEND_URL+"/events");
+        const {data} = await axios("/api/events");
         dispatch({ type: GET_EVENTS_ACTION, payload: data });
     }catch (error){
         dispatch({
@@ -36,7 +36,7 @@ export const getUserEventsAction = () => async(dispatch, getState)=>{
             },
         };
 
-        const {data} = await axios(BACKEND_URL+"/events/user",config);
+        const {data} = await axios("/api/events/user",config);
         dispatch({ type: GET_EVENTS_ACTION, payload: data });
     }catch (error){
         dispatch({
@@ -52,7 +52,7 @@ export const getUserEventsAction = () => async(dispatch, getState)=>{
 export const getEventsByCategory = (search) => async(dispatch)=>{
     try{
         dispatch({type:GET_EVENTS_REQUEST});
-        const {data} = await axios(BACKEND_URL+"/events/filter?category="+search);
+        const {data} = await axios("/api/events/filter?category="+search);
         dispatch({ type: GET_EVENTS_ACTION, payload: data });
     }catch (error){
         dispatch({

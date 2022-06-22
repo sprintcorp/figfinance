@@ -35,15 +35,6 @@ function App() {
               <HeaderComponent/>
 
                 <Routes>
-
-                  {/*<Route*/}
-                  {/*  path="/dashboard"*/}
-                  {/*  element={*/}
-                  {/*    <PrivateRouter isAuthenticated={isAuthenticated}>*/}
-                  {/*      <DashboardScreen/>*/}
-                  {/*    </PrivateRouter>*/}
-                  {/*  }*/}
-                  {/*/>*/}
                  
                   <Route
                       path="/dashboard"
@@ -56,15 +47,14 @@ function App() {
                       
                   />
 
+                  <Route path="/" element={<Layout />}>
 
-                    <Route path="/" element={<Layout />}>
+                      <Route index element={<HomeScreen/>} />
+                      <Route path="register" element={<RegisterScreen/>} />
+                      <Route path="login" element={<LoginScreen/>} />
+                      <Route path="event" element={<AddEventScreen/>} />
 
-                        <Route index element={<HomeScreen/>} />
-                        <Route path="register" element={<RegisterScreen/>} />
-                        <Route path="login" element={<LoginScreen/>} />
-                        <Route path="event" element={<AddEventScreen/>} />
-
-                    </Route>
+                  </Route>
                     
 
                 </Routes>
