@@ -50,7 +50,7 @@ function App() {
                       index
                       element={
                         <PrivateRouter isAuthenticated={isAuthenticated}>
-                            <Shipping />
+                            <DashboardScreen />
                         </PrivateRouter>
                       }
                       
