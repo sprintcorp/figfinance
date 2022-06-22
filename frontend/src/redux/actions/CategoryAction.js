@@ -4,7 +4,7 @@ import axios from "axios";
 export const getCategoriesAction = () => async(dispatch)=>{
   try{
     dispatch({type:GET_CATEGORIES_REQUEST});
-    const {data} = await axios("/api/categories");
+    const {data} = await axios("/categories");
     dispatch({ type: GET_CATEGORIES_ACTION, payload: data });
   }catch (error){
     dispatch({

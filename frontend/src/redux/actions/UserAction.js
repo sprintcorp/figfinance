@@ -19,7 +19,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         }
 
-		const { data } = await axios.post(`/api/login`, { email, password }, config);
+		const { data } = await axios.post("/login", { email, password }, config);
 		dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 		// localStorage.setItem("userInfo", JSON.stringify(data));
 
@@ -46,7 +46,7 @@ export const register = (email, password) => async (dispatch) => {
 			},
 		};
 
-		const { data } = await axios.post(`/api/register`,{ email, password },config);
+		const { data } = await axios.post("/register",{ email, password },config);
 		dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
 		// localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {
@@ -59,6 +59,27 @@ export const register = (email, password) => async (dispatch) => {
 		});
 	}
 };
+
+// Load user
+export const loadUser = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: LOAD_USER_REQUEST })
+
+        const { data } = await axios.get('/me')
+
+        dispatch({
+            type: LOAD_USER_SUCCESS,
+            payload: data.user
+        })
+
+    } catch (error) {
+        dispatch({
+            type: LOAD_USER_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
 
 export const logout = () => {
 	localStorage.removeItem("userInfo");
