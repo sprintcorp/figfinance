@@ -7,7 +7,6 @@ import {
 	USER_REGISTER_SUCCESS
 } from "../constants/Constant";
 import axios from "axios";
-import {BACKEND_URL} from "../../server";
 
 // LOGIN
 export const login = (email, password) => async (dispatch) => {

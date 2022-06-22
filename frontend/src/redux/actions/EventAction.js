@@ -5,7 +5,6 @@ import {
     GET_EVENTS_REQUEST,
     CLEAR_ERRORS
 } from "../constants/Constant";
-import {BACKEND_URL} from "../../server";
 
 
 export const getEventsAction = () => async(dispatch)=>{

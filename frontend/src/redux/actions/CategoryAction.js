@@ -1,6 +1,5 @@
 import {CLEAR_ERRORS, GET_CATEGORIES_ACTION, GET_CATEGORIES_FAIL, GET_CATEGORIES_REQUEST} from "../constants/Constant";
 import axios from "axios";
-import {BACKEND_URL} from "../../server";
 
 export const getCategoriesAction = () => async(dispatch)=>{
   try{
